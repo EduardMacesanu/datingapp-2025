@@ -8,13 +8,22 @@
     }
   },
   "projects": {
-    "client": {
+    "client": { 
       "projectType": "application",
       "schematics": {
+        "skipTests": true,
+        "path": "src",
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "css"
+        },
+        "@schematics/angular:service": {
+          "skipTests": true,
+          "path": "src/core/services"
         }
       },
+
+
+
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
