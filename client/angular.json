@@ -23,6 +23,10 @@
         "@schematics/angular:guard": {
           "skipTests": true,
           "path": "src/core/guards"
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true,
+          "path": "src/core/interceptors"
         }
       },
 
