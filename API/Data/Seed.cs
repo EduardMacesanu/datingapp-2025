@@ -14,7 +14,7 @@ public class Seed
     {
         if (await context.Users.AnyAsync()) return;
 
-        var memberData = await File.ReadAllTextAsync("Data/  UserSeedData.json");
+        var memberData = await File.ReadAllTextAsync("Data/UserSeedData.json");
         var members = JsonSerializer.Deserialize<List<SeedUserDto>>(memberData);
 
         if (members == null)
