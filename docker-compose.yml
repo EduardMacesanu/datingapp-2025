@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: ./API
+      dockerfile: Dockerfile
+    container_name: datingapp_api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:5000
+    ports:
+      - "5000:5000"
+    volumes:
+      - api_data:/app/data
+    networks:
+      - datingapp_network
+    restart: unless-stopped
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: datingapp_client
+    ports:
+      - "80:80"
+    depends_on:
+      - api
+    networks:
+      - datingapp_network
+    restart: unless-stopped
+
+networks:
+  datingapp_network:
+    driver: bridge
+
+volumes:
+  api_data:
