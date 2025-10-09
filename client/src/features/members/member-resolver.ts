@@ -11,7 +11,7 @@ export const memberResolver: ResolveFn<Member> = (route, state) => {
 
   if (!memberId) {
     router.navigateByUrl('/not-found');
-    return EMPTY;
+    return EMPTY ;
   }
 
   return memberService.getMember(memberId);
