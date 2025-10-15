@@ -10,13 +10,12 @@ export const loadingInterceptor: HttpInterceptorFn = (req, next) => {
 
   const busyService = inject(BusyService);
 
-  if (req.method === 'GET') { 
+  /*if (req.method === 'GET') { 
     const cacheResponse = cache.get(req.url);
     if (cacheResponse) { 
       return of(cacheResponse);
     }
-
-  }
+  }*/
 
   busyService.busy();
 
