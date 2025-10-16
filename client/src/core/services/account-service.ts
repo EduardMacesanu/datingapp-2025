@@ -41,6 +41,7 @@ export class AccountService {
 
   logout() {
     localStorage.removeItem('user'); //Elimino el usuario del localStorage del navegador
+    localStorage.removeItem('filters'); //Elimino el usuario del localStorage del navegador
     this.currentUser.set(null);
   }
 }

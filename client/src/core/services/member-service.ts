@@ -24,7 +24,11 @@ export class MemberService {
     params = params.append('orderBy', memberParams.orderBy);
     if(memberParams.gender) params = params.append('gender', memberParams.gender);
 
-    return this.http.get<PaginatedResult<Member>>(this.baseUrl + 'members', {params});
+    return this.http.get<PaginatedResult<Member>>(this.baseUrl + 'members', { params }).pipe(
+      tap(() => {
+        localStorage.setItem('memberParams', JSON.stringify(memberParams));
+      })
+    )
   }
 
   getMember(id: string) {
